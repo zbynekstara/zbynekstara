@@ -3,11 +3,13 @@
 var express = require('express');
 var app = express();
 
+// Static files
+app.use(express.static(__dirname + '/../public/css'));
+app.use(express.static(__dirname + '/../public/img'));
+app.use(express.static(__dirname + '/../public/js'));
+
 app.set('port', (process.env.PORT || 5000));
 app.set('view engine', 'jade');
-
-// Static files
-app.use(express.static(__dirname + '/public'));
 
 // Routes
 var requireDir = require('require-dir');
