@@ -1,6 +1,6 @@
-extends layout
+extends nav
 
-block content
-  h1= message
-  h2 Error #{error.status}
-  pre #{error.stack}
+block page
+	h1= message
+	h2 Error #{error.status}
+	pre #{error.stack}

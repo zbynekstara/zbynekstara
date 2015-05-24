@@ -1,5 +1,58 @@
-extends layout
+extends nav
 
-block content
-  h1= title
-  p Welcome to #{title}
+block page
+	div(class='row')
+		section(class='col-md-9', id='article-section')
+			article(class='panel panel-primary')
+				header(class='panel-heading')
+					h1 Welcome
+					p
+						span Tags: Hello, World
+						span(class='pull-right') Category: Test
+				
+				div(class='panel-body')
+					p Welcome to zbynekstara.info!
+
+				footer(class='panel-footer')
+					span Posted by Zbynek Stara
+					span(class='pull-right') May 24, 2015
+
+		section(class='col-md-3', id='about-section')
+			div(class='well')
+				header
+					h2
+						span(class='glyphicon glyphicon-info-sign')
+						|  About Me
+
+				img(class='img-circle img-responsive', alt='Zbynek Stara picture', src='/zbynek_stara_id.jpg')
+
+				p I am Zbynek Stara, a sophomore student of Computer Science at NYU Abu Dhabi. I love to build cool things that can have real imapct in the world.
+				p: a(href='/about') Learn more about me
+
+				hr
+
+				h3
+					span(class='glyphicon glyphicon-envelope')
+					|  Get in Touch
+
+				ul(class='list-unstyled')
+					li(class='contact')
+						div(class='clearfix')
+							img(class='pull-left icon', src='/icon_facebook.png')
+							a(href='https://facebook.com/zbynek.stara') Facebook
+					li(class='contact')
+						div(class='clearfix')
+							img(class='pull-left icon', src='/icon_linkedin.png')
+							a(href='https://www.linkedin.com/profile/view?id=280668105') LinkedIn
+					li(class='contact')
+						div(class='clearfix')
+							img(class='pull-left icon', src='/icon_google_plus.png')
+							a(href='https://plus.google.com/107509983825824981238') Google+
+					li(class='contact')
+						div(class='clearfix')
+							img(class='pull-left icon', src='/icon_star.png')
+							a(href='https://github.com/zbynekstara') GitHub
+					li(class='contact')
+						div(class='clearfix')
+							img(class='pull-left icon', src='/icon_email.png')
+							a(href='mailto:zbynek[dot]stara[dot]internet[at]hotmail[dot]com') Email
