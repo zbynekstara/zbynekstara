@@ -5,5 +5,5 @@ prod-requirements.txt
 rsync.sh
 rsync-exclude.txt
 rsync.txt
-sync_commit.sh
-sync_commit_zbynekstara.sh
+sync-heroku.sh
+sync-heroku-zbynekstara.sh
