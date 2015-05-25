@@ -19,6 +19,18 @@ hr {
 	background-color: #331199;
 }
 
+.navbar-default .navbar-toggle {
+	border-color: #E7E7E7;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+	background-color: #008888;
+}
+
+.navbar-default .navbar-toggle .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar, .navbar-default .navbar-toggle:hover .icon-bar {
+	background-color: #FFFFFF;
+}
+
 .navbar-default .navbar-nav > li > a {
 	color: #FFFFFF;
 }

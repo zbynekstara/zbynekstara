@@ -7,6 +7,12 @@ block content
 				a(class='navbar-brand', href='/')
 					img(class='img-responsive logo', src='zbynek_stara_logo.png')
 
+				button(type='button', class='navbar-toggle', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+					span(class='sr-only') Toggle Navigation
+					span(class='icon-bar')
+					span(class='icon-bar')
+					span(class='icon-bar')
+
 			div(class='collapse navbar-collapse navbar-ex1-collapse')
 				ul(class='nav navbar-nav pull-right')
 					if (title === 'Home')
@@ -37,7 +43,7 @@ block content
 					| Built with 
 					span(class='glyphicon glyphicon-heart')
 					|  by Zbynek Stara
-					
+
 					span(class='pull-right')
 						| Copyright 
 						span(class='glyphicon glyphicon-copyright-mark')
