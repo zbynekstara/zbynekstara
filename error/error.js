@@ -12,7 +12,7 @@ router.use(function(err, req, res, next) {
 		return next();
 	}
 
-	res.render('error', { message:(err.message||'Something broke'), error:err });
+	res.render('error', { title:'404', message:(err.message||'Something broke'), error:err });
 });
 
 router.use(function(err, req, res, next) {
@@ -24,7 +24,7 @@ router.use(function(err, req, res, next) {
 	console.log(err.stack);
 
 	// send back a 500 with a generic message
-	res.render('error', { message:(err.message||'Something broke'), error:err });
+	res.render('error', { title:'500', message:(err.message||'Something broke'), error:err });
 });
 
 module.exports = router;
