@@ -7,15 +7,23 @@ block page
 				header(class='panel-heading')
 					h1 Welcome
 					p
-						span Tags: Hello, World
-						span(class='pull-right') Category: Test
+						span(class='glyphicon glyphicon-tags')
+						strong  Tags:
+						|  Hello, World
+						span(class='pull-right')
+							span(class='glyphicon glyphicon-inbox')
+							strong  Category:
+							|  Test
 				
 				div(class='panel-body')
 					p Welcome to zbynekstara.info!
 
 				footer(class='panel-footer')
-					span Posted by Zbynek Stara
-					span(class='pull-right') May 24, 2015
+					span(class='glyphicon glyphicon-user')
+					|  Zbynek Stara
+					span(class='pull-right')
+						span(class='glyphicon glyphicon-calendar')
+						|  May 24, 2015
 
 		section(class='col-md-3', id='about-section')
 			div(class='well')
