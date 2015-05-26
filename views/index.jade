@@ -3,27 +3,29 @@ extends nav
 block page
 	div(class='row')
 		section(class='col-md-9', id='article-section')
-			article(class='panel panel-primary')
-				header(class='panel-heading')
-					h1 Welcome
-					p
-						span(class='glyphicon glyphicon-tags')
-						strong  Tags:
-						|  Hello, World
-						span(class='pull-right')
-							span(class='glyphicon glyphicon-inbox')
-							strong  Category:
-							|  Test
-				
-				div(class='panel-body')
-					p Welcome to zbynekstara.info!
+			each article in articles
+				article(class='panel panel-primary')
+					header(class='panel-heading')
+						h1 #{article.title}
+						p
+							span(class='glyphicon glyphicon-tags')
+							strong  Tags:
+							each tag in article.tags
+								|  #{tag}
+							span(class='pull-right')
+								span(class='glyphicon glyphicon-inbox')
+								strong  Category:
+								|  #{article.category}
+					
+					div(class='panel-body')
+						p #{article.text}
 
-				footer(class='panel-footer')
-					span(class='glyphicon glyphicon-user')
-					|  Zbynek Stara
-					span(class='pull-right')
-						span(class='glyphicon glyphicon-calendar')
-						|  May 24, 2015
+					footer(class='panel-footer')
+						span(class='glyphicon glyphicon-user')
+						|  #{article.author}
+						span(class='pull-right')
+							span(class='glyphicon glyphicon-calendar')
+							|  #{article.date}
 
 		section(class='col-md-3', id='about-section')
 			div(class='well')
