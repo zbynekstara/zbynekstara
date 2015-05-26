@@ -1,50 +1,50 @@
 extends layout
 
 block content
-	nav(class='navbar navbar-default navbar-fixed-top', role='navigation')
-		div(class='container')
-			div(class='navbar-header')
-				a(class='navbar-brand', href='/')
-					img(class='img-responsive logo', src='zbynek_stara_logo.png')
+	nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+		.container
+			.navbar-header
+				a.navbar-brand(href='/')
+					img.img-responsive.logo(src='zbynek_stara_logo.png')
 
-				button(type='button', class='navbar-toggle', data-toggle='collapse', data-target='.navbar-ex1-collapse')
-					span(class='sr-only') Toggle Navigation
-					span(class='icon-bar')
-					span(class='icon-bar')
-					span(class='icon-bar')
+				button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+					span.sr-only Toggle Navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
 
-			div(class='collapse navbar-collapse navbar-ex1-collapse')
-				ul(class='nav navbar-nav pull-right')
+			div.collapse.navbar-collapse.navbar-ex1-collapse
+				ul.nav.navbar-nav.pull-right
 					if (title === 'Home')
-						li(class='active'): a(href='/') Home
+						li.active: a(href='/') Home
 					else
 						li: a(href='/') Home
 					if (title === 'About Me')
-						li(class='active'): a(href='/about') About Me
+						li.active: a(href='/about') About Me
 					else
 						li: a(href='/about') About Me
 					if (title === 'Portfolio')
-						li(class='active'): a(href='/portfolio') Portfolio
+						li.active: a(href='/portfolio') Portfolio
 					else
 						li: a(href='/portfolio') Portfolio
 					if (title === 'CV')
-						li(class='active'): a(href='/cv') CV
+						li.active: a(href='/cv') CV
 					else
 						li: a(href='/cv') CV
 
-	div(class='container')
+	.container
 		block page
 
-		footer(class='row')
-			div(class='col-md-12')
+		footer.row
+			div.col-md-12
 				hr
 
 				p
 					| Built with 
-					span(class='glyphicon glyphicon-heart')
+					span.glyphicon.glyphicon-heart
 					|  by Zbynek Stara
 
-					span(class='pull-right')
+					span.pull-right
 						| Copyright 
-						span(class='glyphicon glyphicon-copyright-mark')
+						span.glyphicon.glyphicon-copyright-mark
 						|  Zbynek Stara 2015

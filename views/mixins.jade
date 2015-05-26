@@ -1,0 +1,75 @@
+mixin article(article)
+	article.panel.panel-primary
+		header.panel-heading
+			h1 #{article.title}
+			p
+				span.glyphicon.glyphicon-tags
+				strong  Tags:
+				each tag in article.tags
+					|  #{tag}
+				span.pull-right
+					span.glyphicon.glyphicon-inbox
+					strong  Category:
+					|  #{article.category}
+		
+		.panel-body
+			p #{article.text}
+
+		footer.panel-footer
+			span.glyphicon.glyphicon-user
+			|  #{article.author}
+			span.pull-right
+				span.glyphicon.glyphicon-calendar
+				|  #{article.date}
+
+mixin tags(tags)
+	h3
+		span.glyphicon.glyphicon-tags
+		|  Tags
+
+	ul.list-unstyled
+		each tag in tags
+			li.list-element
+				a(href='/tag/#{tag}') #{tag}
+
+mixin categories(categories)
+	h3
+		span.glyphicon.glyphicon-inbox
+		|  Categories
+
+	ul.list-unstyled
+		each category in categories
+			li.list-element
+				a(href='/category/#{category}') #{category}
+
+mixin about_me
+	h3
+		span.glyphicon.glyphicon-info-sign
+		|  About Me
+
+	img.img-circle.img-responsive(alt='Zbynek Stara picture', src='/zbynek_stara_id.jpg')
+
+	p I am Zbynek Stara, a sophomore student of Computer Science at NYU Abu Dhabi. I love to build cool things that can have real imapct in the world.
+	p: a(href='/about') Learn more about me
+
+mixin get_in_touch
+	h3
+		span.glyphicon.glyphicon-envelope
+		|  Get in Touch
+
+	ul.list-unstyled
+		li.list-element: .clearfix
+			img.pull-left.icon(src='/icon_facebook.png')
+			a(href='https://facebook.com/zbynek.stara') Facebook
+		li.list-element: .clearfix
+			img.pull-left.icon(src='/icon_linkedin.png')
+			a(href='https://www.linkedin.com/profile/view?id=280668105') LinkedIn
+		li.list-element: .clearfix
+			img.pull-left.icon(src='/icon_google_plus.png')
+			a(href='https://plus.google.com/107509983825824981238') Google+
+		li.list-element: .clearfix
+			img.pull-left.icon(src='/icon_star.png')
+			a(href='https://github.com/zbynekstara') GitHub
+		li.list-element: .clearfix
+			img.pull-left.icon(src='/icon_email.png')
+			a(href='mailto:zbynek[dot]stara[dot]internet[at]hotmail[dot]com') Email

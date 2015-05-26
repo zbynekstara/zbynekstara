@@ -3,13 +3,14 @@ extends nav
 include ./mixins.jade
 
 block page
-	.row
+	div.row
 		section.col-md-9
-			each article in articles
-				+article(article)
+			
 
 		section.col-md-3
 			.well
-				+about_me
-				hr
 				+get_in_touch
+				hr
+				+tags(tags)
+				hr
+				+categories(categories)
