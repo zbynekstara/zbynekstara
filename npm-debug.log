@@ -5,11 +5,11 @@
 2 info using npm@2.10.1
 3 info using node@v0.12.4
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info prestart zbynekstara@0.1.0
-6 info start zbynekstara@0.1.0
+5 info prestart zbynekstara@0.2.0
+6 info start zbynekstara@0.2.0
 7 verbose unsafe-perm in lifecycle true
-8 info zbynekstara@0.1.0 Failed to exec start script
-9 verbose stack Error: zbynekstara@0.1.0 start: `node ./bin/www`
+8 info zbynekstara@0.2.0 Failed to exec start script
+9 verbose stack Error: zbynekstara@0.2.0 start: `node ./bin/www`
 9 verbose stack Exit status 1
 9 verbose stack     at EventEmitter.<anonymous> (/Users/Zbynda/code/github/zbynekstara/venv/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
 9 verbose stack     at EventEmitter.emit (events.js:110:17)
@@ -17,16 +17,16 @@
 9 verbose stack     at ChildProcess.emit (events.js:110:17)
 9 verbose stack     at maybeClose (child_process.js:1015:16)
 9 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
-10 verbose pkgid zbynekstara@0.1.0
+10 verbose pkgid zbynekstara@0.2.0
 11 verbose cwd /Users/Zbynda/Code/github/zbynekstara
 12 error Darwin 14.3.0
 13 error argv "/Users/Zbynda/Code/github/zbynekstara/venv/bin/node" "/Users/Zbynda/code/github/zbynekstara/venv/bin/npm" "start"
 14 error node v0.12.4
 15 error npm  v2.10.1
 16 error code ELIFECYCLE
-17 error zbynekstara@0.1.0 start: `node ./bin/www`
+17 error zbynekstara@0.2.0 start: `node ./bin/www`
 17 error Exit status 1
-18 error Failed at the zbynekstara@0.1.0 start script 'node ./bin/www'.
+18 error Failed at the zbynekstara@0.2.0 start script 'node ./bin/www'.
 18 error This is most likely a problem with the zbynekstara package,
 18 error not with npm itself.
 18 error Tell the author that this fails on your system:
