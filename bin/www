@@ -9,6 +9,10 @@ app.use(express.static(__dirname + '/../public/img'));
 app.use(express.static(__dirname + '/../public/js'));
 app.use(express.static(__dirname + '/../public/fonts'));
 
+// Favicon
+var favicon = require('serve-favicon');
+app.use(favicon(__dirname + '/../public/img/favicon.ico'));
+
 // Port
 app.set('port', (process.env.PORT || 5000));
 

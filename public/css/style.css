@@ -11,6 +11,14 @@ a:hover, a:focus {
 	color: #008888;
 }
 
+.whitelink {
+	color: #FFFFFF;
+}
+
+.whitelink:hover, .whitelink:focus {
+	color: #FFFFFF;
+}
+
 hr {
 	border-color: #331199;
 }

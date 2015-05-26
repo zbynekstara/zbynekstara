@@ -6,11 +6,13 @@ mixin article(article)
 				span.glyphicon.glyphicon-tags
 				strong  Tags:
 				each tag in article.tags
-					|  #{tag}
+					|  
+					a.whitelink(href='/tag/#{tag}') #{tag}
 				span.pull-right
 					span.glyphicon.glyphicon-inbox
 					strong  Category:
-					|  #{article.category}
+					|  
+					a.whitelink(href='/category/#{article.category}') #{article.category}
 		
 		.panel-body
 			p #{article.text}
