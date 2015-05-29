@@ -7,12 +7,12 @@ mixin article(article)
 				strong  Tags:
 				each tag in article.tags
 					|  
-					a.whitelink(href='/tag/#{tag}') #{tag}
+					a.white-link(href='/tag?tag=#{tag}') #{tag}
 				span.pull-right
 					span.glyphicon.glyphicon-inbox
 					strong  Category:
 					|  
-					a.whitelink(href='/category/#{article.category}') #{article.category}
+					a.white-link(href='/category?category=#{article.category}') #{article.category}
 		
 		.panel-body
 			p #{article.text}
@@ -32,7 +32,7 @@ mixin tags(tags)
 	ul.list-unstyled
 		each tag in tags
 			li.list-element
-				a(href='/tag/#{tag}') #{tag}
+				a(href='/tag?tag=#{tag}') #{tag}
 
 mixin categories(categories)
 	h3
@@ -42,14 +42,24 @@ mixin categories(categories)
 	ul.list-unstyled
 		each category in categories
 			li.list-element
-				a(href='/category/#{category}') #{category}
+				a(href='/category?category=#{category}') #{category}
+
+mixin archives(archives)
+	h3
+		span.glyphicon.glyphicon-calendar
+		|  Archives
+
+	ul.list-unstyled
+		each archive in archives
+			li.list-element
+				a(href='/archive?year=#{archive}') #{archive}
 
 mixin about_me
 	h3
 		span.glyphicon.glyphicon-info-sign
 		|  About Me
 
-	img.img-circle.img-responsive(alt='Zbynek Stara picture', src='/zbynek_stara_id.jpg')
+	img.img-circle.img-responsive(alt='Zbynek Stara picture', src='/img/zbynek_stara_id.jpg')
 
 	p I am Zbynek Stara, a sophomore student of Computer Science at NYU Abu Dhabi. I love to build cool things that can have real imapct in the world.
 	p: a(href='/about') Learn more about me
@@ -61,17 +71,17 @@ mixin get_in_touch
 
 	ul.list-unstyled
 		li.list-element: .clearfix
-			img.pull-left.icon(src='/icon_facebook.png')
+			img.pull-left.icon(src='/img/icon_facebook.png')
 			a(href='https://facebook.com/zbynek.stara') Facebook
 		li.list-element: .clearfix
-			img.pull-left.icon(src='/icon_linkedin.png')
+			img.pull-left.icon(src='/img/icon_linkedin.png')
 			a(href='https://www.linkedin.com/profile/view?id=280668105') LinkedIn
 		li.list-element: .clearfix
-			img.pull-left.icon(src='/icon_google_plus.png')
+			img.pull-left.icon(src='/img/icon_google_plus.png')
 			a(href='https://plus.google.com/107509983825824981238') Google+
 		li.list-element: .clearfix
-			img.pull-left.icon(src='/icon_star.png')
+			img.pull-left.icon(src='/img/icon_star.png')
 			a(href='https://github.com/zbynekstara') GitHub
 		li.list-element: .clearfix
-			img.pull-left.icon(src='/icon_email.png')
+			img.pull-left.icon(src='/img/icon_email.png')
 			a(href='mailto:zbynek[dot]stara[dot]internet[at]hotmail[dot]com') Email

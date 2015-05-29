@@ -11,11 +11,15 @@ a:hover, a:focus {
 	color: #008888;
 }
 
-.whitelink {
+.no-matches {
+	text-decoration: line-through;
+}
+
+.white-link {
 	color: #FFFFFF;
 }
 
-.whitelink:hover, .whitelink:focus {
+.white-link:hover, .white-link:focus {
 	color: #FFFFFF;
 }
 

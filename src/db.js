@@ -21,6 +21,12 @@
 var MongoClient = require('mongodb').MongoClient;
 
 module.exports = {
+	getArchives: function () {
+		// change the contents of this array to change the options for the archives mixin
+		var archives = ['2014'];
+		return archives;
+	},
+
 	getArticles: function (render) {
 		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
 			if(!err) db.collection('articles', function(err, collection) {
@@ -54,6 +60,46 @@ module.exports = {
 					if (!err) {
 						db.close();
 						render(categories);
+					}
+				});
+			});
+		});
+	},
+
+	getArticlesByTag: function (tag, render) {
+		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+			if(!err) db.collection('articles', function(err, collection) {
+				if (!err) collection.find({ "tags":tag }).sort({ "_id":-1 }).toArray(function(err, articles) {
+					if (!err) {
+						db.close();
+						render(articles);
+					}
+				});
+			});
+		});
+	},
+
+	getArticlesByCategory: function (category, render) {
+		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+			if(!err) db.collection('articles', function(err, collection) {
+				if (!err) collection.find({ "category":category }).sort({ "_id":-1 }).toArray(function(err, articles) {
+					if (!err) {
+						db.close();
+						render(articles);
+					}
+				});
+			});
+		});
+	},
+
+	getArticlesByDate: function (date, render) {
+		// matches a part of the date as string
+		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+			if(!err) db.collection('articles', function(err, collection) {
+				if (!err) collection.find({ "date":{ $regex:date } }).sort({ "_id":-1 }).toArray(function(err, articles) {
+					if (!err) {
+						db.close();
+						render(articles);
 					}
 				});
 			});

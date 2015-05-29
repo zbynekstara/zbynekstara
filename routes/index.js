@@ -1,7 +1,7 @@
 var express  = require('express');
 var router   = express.Router();
 
-var db = require('../src/db.js')
+var db = require('../src/db.js');
 
 router.get('/', function(req, res) {
 	db.getArticles(function(articles) {
