@@ -5,11 +5,7 @@ include ./mixins.jade
 block page
 	.row
 		section.col-md-9
-			if articles.length > 0
-				each article in articles
-					+article(article)
-			else
-				h1.no-matches No articles to display
+			+articles(articles)
 
 		section.col-md-3
 			.well

@@ -4,7 +4,7 @@ var router = express.Router();
 var db = require('../src/db.js');
 
 router.get('/', function(req, res) {
-	db.getArticles(function(articles) {
+	db.getArticles(5, function(articles) {
 		res.render('index', { title:'Home', articles:articles });
 	});
 });

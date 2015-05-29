@@ -21,25 +21,6 @@
 var MongoClient = require('mongodb').MongoClient;
 
 module.exports = {
-	getArchives: function () {
-		// change the contents of this array to change the options for the archives mixin
-		var archives = ['2015'];
-		return archives;
-	},
-
-	getArticles: function (render) {
-		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
-			if(!err) db.collection('articles', function(err, collection) {
-				if (!err) collection.find().sort({ "_id":-1 }).limit(5).toArray(function(err, articles) {
-					if (!err) {
-						db.close();
-						render(articles);
-					}
-				});
-			});
-		});
-	},
-
 	getTags: function (render) {
 		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
 			if(!err) db.collection('articles', function(err, collection) {
@@ -60,6 +41,65 @@ module.exports = {
 					if (!err) {
 						db.close();
 						render(categories);
+					}
+				});
+			});
+		});
+	},
+
+	getArchives: function (render) {
+		// change the contents of this array to change the options for the archives mixin
+		var archives = ['2015'];
+		render(archives);
+	},
+
+	getProjects: function (render) {
+		// change the contents of this array to change contents of portfolio page
+		var projects = [
+			{
+				"title":"zbynekstara.info",
+				"caption":"This website. Developed with love using Node.js.",
+				"development":"Development stack: Node.js + Jade + Express + MongoDB + Heroku",
+				"img":"img/portfolio_zbynekstara.png",
+				"link":"http://zbynekstara.info",
+				"code":"https://github.com/zbynekstara/zbynekstara"
+			}
+			,
+			{
+				"title":"NYUAD EmailTemplater",
+				"caption":"NYUAD internship project. Drag-and-drop functionality makes it trivial to create and use email templates for university newsletters. The Web Services staff no nonger need to write each template by hand.",
+				"development":"Development stack: PHP + JavaScript + JQuery + Blade",
+				"img":"img/portfolio_emailtemplater.png",
+				"link":"",
+				"code":""
+			},
+			{
+				"title":"SingleDrop/QataretHaya",
+				"caption":"2015 NYUAD Hackathon project. Designed to help connect blood donors with hospitals in countries of the Middle East.",
+				"development":"Development stack: Python + Flask + SQLAlchemy + Heroku",
+				"img":"img/portfolio_singledrop.png",
+				"link":"http://singledrop.herokuapp.com",
+				"code":"https://github.com/NYUAD-Hackathon/SingleDrop"
+			},
+			{
+				"title":"Findmethewords",
+				"caption":"Startup web dictionary that allows users to save their words and remember them through spaced-out reminders.",
+				"development":"Development stack: Python + Tornado + MySQL + Heroku",
+				"img":"img/portfolio_findmethewords.png",
+				"link":"http://findmethewords.com",
+				"code":""
+			}
+		];
+		render(projects);
+	},
+
+	getArticles: function (limit, render) {
+		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+			if(!err) db.collection('articles', function(err, collection) {
+				if (!err) collection.find().sort({ "_id":-1 }).limit(limit).toArray(function(err, articles) {
+					if (!err) {
+						db.close();
+						render(articles);
 					}
 				});
 			});

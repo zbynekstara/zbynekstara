@@ -1,3 +1,11 @@
+mixin articles(articles)
+	if (articles.length > 0)
+		each article in articles
+			block
+			+article(article)
+	else
+		h1.no-matches No articles to display
+
 mixin article(article)
 	article.panel.panel-primary
 		header.panel-heading
@@ -23,6 +31,50 @@ mixin article(article)
 			span.pull-right
 				span.glyphicon.glyphicon-calendar
 				|  #{article.date}
+
+mixin projects(projects)
+	- var project1 = undefined;
+	- var project2 = undefined;
+	each project, index in projects
+		if (index%2 == 0)
+			- project1 = project;
+			if (index+1 == projects.length)
+				block
+				+project_pair(project1)
+		else
+			- project2 = project;
+			block
+			+project_pair(project1, project2)
+
+mixin project_pair(project1, project2)
+	.row
+		if (project1 !== undefined)
+			block
+			+project(project1)
+
+		if (project2 !== undefined)
+			block
+			+project(project2)
+
+mixin project(project)
+	section.col-md-6
+		.thumbnail
+			.thumbnail-img
+				img.img-responsive.img-thumbnail(src="#{project.img}")
+			.thumbnail-header
+				h3 #{project.title}
+			.thumbnail-caption
+				p #{project.caption}
+				p #{project.development}
+			.thumbnail-footer
+				if (project.link !== "")
+					a.btn.btn-primary(href="#{project.link}" target="_blank" role="button") Visit Site
+				else
+					a.btn.btn-primary(role="button" disabled) Visit Site
+				if (project.code !== "")
+					a.pull-right.btn.btn-primary(href="#{project.code}" target="_blank" role="button") View Code
+				else
+					a.pull-right.btn.btn-primary(role="button" disabled) View Code
 
 mixin tags(tags)
 	h3
