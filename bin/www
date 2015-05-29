@@ -3,12 +3,12 @@
 var express = require('express');
 var app = express();
 
-// Static files
-app.use(express.static(__dirname + '/../public'));
-
 // Favicon
 var favicon = require('serve-favicon');
 app.use(favicon(__dirname + '/../public/img/favicon.ico'));
+
+// Static files
+app.use(express.static(__dirname + '/../public'));
 
 // Port
 app.set('port', (process.env.PORT || 5000));

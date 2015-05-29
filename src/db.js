@@ -23,7 +23,7 @@ var MongoClient = require('mongodb').MongoClient;
 module.exports = {
 	getArchives: function () {
 		// change the contents of this array to change the options for the archives mixin
-		var archives = ['2014'];
+		var archives = ['2015'];
 		return archives;
 	},
 
