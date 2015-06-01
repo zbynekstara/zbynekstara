@@ -33,48 +33,43 @@ mixin article(article)
 				|  #{article.date}
 
 mixin projects(projects)
-	- var project1 = undefined;
-	- var project2 = undefined;
+	- var project_group_1 = [];
+	- var project_group_2 = [];
 	each project, index in projects
 		if (index%2 == 0)
-			- project1 = project;
-			if (index+1 == projects.length)
-				block
-				+project_pair(project1)
+			- project_group_1.push(project);
 		else
-			- project2 = project;
-			block
-			+project_pair(project1, project2)
-
-mixin project_pair(project1, project2)
+			- project_group_2.push(project);
 	.row
-		if (project1 !== undefined)
-			block
-			+project(project1)
+		block
+		+project_group(project_group_1)
+		block
+		+project_group(project_group_2)
 
-		if (project2 !== undefined)
+mixin project_group(project_group)
+	section.col-md-6
+		each project in project_group
 			block
-			+project(project2)
+			+project(project)
 
 mixin project(project)
-	section.col-md-6
-		.thumbnail
-			.thumbnail-img
-				img.img-responsive.img-thumbnail(src="#{project.img}")
-			.thumbnail-header
-				h3 #{project.title}
-			.thumbnail-caption
-				p #{project.caption}
-				p #{project.development}
-			.thumbnail-footer
-				if (project.link !== "")
-					a.btn.btn-primary(href="#{project.link}" target="_blank" role="button") Visit Site
-				else
-					a.btn.btn-primary(role="button" disabled) Visit Site
-				if (project.code !== "")
-					a.pull-right.btn.btn-primary(href="#{project.code}" target="_blank" role="button") View Code
-				else
-					a.pull-right.btn.btn-primary(role="button" disabled) View Code
+	.thumbnail
+		.thumbnail-img
+			img.img-responsive.img-thumbnail(src="#{project.img}")
+		.thumbnail-header
+			h3 #{project.title}
+		.thumbnail-caption
+			p #{project.caption}
+			p #{project.development}
+		.thumbnail-footer
+			if (project.link !== "")
+				a.btn.btn-primary(href="#{project.link}" target="_blank" role="button") Visit Site
+			else
+				a.btn.btn-primary(role="button" disabled) Visit Site
+			if (project.code !== "")
+				a.pull-right.btn.btn-primary(href="#{project.code}" target="_blank" role="button") View Code
+			else
+				a.pull-right.btn.btn-primary(role="button" disabled) View Code
 
 mixin tags(tags)
 	h3
@@ -113,10 +108,14 @@ mixin about_me
 
 	img.img-circle.img-responsive(alt='Zbynek Stara picture', src='/img/zbynek_stara_id.jpg')
 
-	p I am Zbynek Stara, a sophomore student of Computer Science at NYU Abu Dhabi. I love to build cool things that can have real imapct in the world.
-	p: a(href='/about') Learn more about me
+	p
+		| My name is Zbynek Stara, and I am a sophomore student of Computer Science at NYU Abu Dhabi. 
+		| I love to build cool things that can have real imapct in the world.
+	p
+		a(href='/about') Learn more about me
 
 mixin get_in_touch
+	a(name='get_in_touch')
 	h3
 		span.glyphicon.glyphicon-envelope
 		|  Get in Touch
