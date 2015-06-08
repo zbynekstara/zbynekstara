@@ -26,6 +26,16 @@ mixin article(article, complete)
 			| !{article.intro}
 			if (complete)
 				| !{article.readMore}
+				.well
+					.comments
+						#disqus_thread
+							script.
+								var disqus_shortname = 'zbynekstara';
+								(function() {
+									var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+									dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+									(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+								})();
 			else if (!complete && article.readMore !== "")
 				p
 					a(href='/article?article=#{article.article}') Read more…
@@ -114,7 +124,7 @@ mixin about_me
 	img.img-circle.img-responsive(alt='Zbynek Stara picture', src='/img/zbynek_stara_id.jpg')
 
 	p
-		| My name is Zbynek Stara, and I am a sophomore student of Computer Science at NYU Abu Dhabi. 
+		| My name is Zbynek Stara, and I'm a junior student of Computer Science at NYU Abu Dhabi. 
 		| I love to build cool things that can have real imapct in the world.
 	p
 		a(href='/about') Learn more about me

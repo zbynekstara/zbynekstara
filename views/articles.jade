@@ -3,13 +3,16 @@ extends nav
 include ./mixins.jade
 
 block page
+	- complete = complete || false;
 	.row
 		section.col-md-9
-			- complete = complete || false;
 			+articles(articles, complete)
 
 		section.col-md-3
 			.well
+				if (complete)
+					+about_me
+					hr
 				+get_in_touch
 				hr
 				+tags(tags)
