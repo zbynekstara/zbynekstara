@@ -27,6 +27,14 @@ hr {
 	border-color: #331199;
 }
 
+.first-tab {
+	margin-left: 20px;
+}
+
+.paragraph {
+	margin: 0px 0px 10px;
+}
+
 pre.inline {
 	display: inline;
 	padding: 0;
