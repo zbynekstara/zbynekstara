@@ -1,5 +1,7 @@
 extends layout
 
+include ./glyphicons.jade
+
 block content
 	nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
 		.container
@@ -38,10 +40,9 @@ block content
 		footer.row
 			.col-md-12
 				hr
-
 				p
 					| Built with 
-					span.glyphicon.glyphicon-heart
+					+random_glyphicon
 					|  by Zbynek Stara
 
 					span.pull-right

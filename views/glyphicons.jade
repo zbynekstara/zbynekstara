@@ -1,0 +1,6 @@
+mixin random_glyphicon
+	- var glyphicons = ["asterisk","plus","pencil","glass","music","heart","star","signal","home","time","refresh","headphones","volume-up","book","play","question-sign","info-sign","gift","leaf","plane","calendar","random","comment","hdd","thumbs-up","hand-up","globe","wrench","fullscreen","phone","save","tree-deciduous","cd","bed","apple","hourglass","lamp","ice-lolly","ice-lolly-tasted","education","option-horizontal","menu-hamburger","oil","grain","sunglasses"];
+	- var randomIndex = Math.floor(Math.random() * glyphicons.length);
+	- var randomGlyphicon = "glyphicon-"+glyphicons[randomIndex];
+
+	span(class="glyphicon #{randomGlyphicon}")
