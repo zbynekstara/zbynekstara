@@ -1,18 +1,11 @@
 /*
 {
-	title:'Welcome',
-	tags:['Hello', 'World'],
-	category:'Test',
-	text:'Welcome to zbynekstara.info!',
-	author:'Zbynek Stara',
-	date:'May 24, 2015'
-}
-
-{
+	"article":"welcome",
 	"title":"Welcome",
 	"tags":["Hello", "World"],
 	"category":"Test",
-	"text":"Welcome to zbynekstara.info!",
+	"intro":"<p>Welcome to zbynekstara.info!</p>",
+	"readMore":"<p>Here I share tips and tricks I learned while coding.</p>",
 	"author":"Zbynek Stara",
 	"date":"May 24, 2015"
 }
@@ -97,6 +90,19 @@ module.exports = {
 		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
 			if(!err) db.collection('articles', function(err, collection) {
 				if (!err) collection.find().sort({ "_id":-1 }).limit(limit).toArray(function(err, articles) {
+					if (!err) {
+						db.close();
+						render(articles);
+					}
+				});
+			});
+		});
+	},
+
+	getArticle: function (article, render) {
+		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+			if(!err) db.collection('articles', function(err, collection) {
+				if (!err) collection.find({ "article":article }).toArray(function(err, articles) {
 					if (!err) {
 						db.close();
 						render(articles);

@@ -1,12 +1,12 @@
-mixin articles(articles)
+mixin articles(articles, complete)
 	if (articles.length > 0)
 		each article in articles
 			block
-			+article(article)
+			+article(article, complete)
 	else
 		h1.no-matches No articles to display
 
-mixin article(article)
+mixin article(article, complete)
 	article.panel.panel-primary
 		header.panel-heading
 			h1 #{article.title}
@@ -23,7 +23,12 @@ mixin article(article)
 					a.white-link(href='/category?category=#{article.category}') #{article.category}
 		
 		.panel-body
-			p #{article.text}
+			| !{article.intro}
+			if (complete)
+				| !{article.readMore}
+			else if (!complete && article.readMore !== "")
+				p
+					a(href='/article?article=#{article.article}') Read more…
 
 		footer.panel-footer
 			span.glyphicon.glyphicon-user

@@ -15,6 +15,19 @@ router.get('/articles', function(req, res) {
 	});
 });
 
+router.get('/article', function(req, res) {
+	var article = req.query.article;
+	db.getTags(function(tags) {
+		db.getCategories(function(categories) {
+			db.getArchives(function(archives) {
+				db.getArticle(article, function(articles) {
+					res.render('articles', { title:'Article: '+article, articles:articles, complete:true, tags:tags, categories:categories, archives:archives });
+				});
+			});
+		});
+	});
+});
+
 router.get('/tag', function(req, res) {
 	var tag = req.query.tag;
 	db.getTags(function(tags) {

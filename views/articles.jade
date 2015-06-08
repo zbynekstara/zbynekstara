@@ -5,7 +5,8 @@ include ./mixins.jade
 block page
 	.row
 		section.col-md-9
-			+articles(articles)
+			- complete = complete || false;
+			+articles(articles, complete)
 
 		section.col-md-3
 			.well

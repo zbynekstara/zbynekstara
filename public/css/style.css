@@ -27,6 +27,14 @@ hr {
 	border-color: #331199;
 }
 
+pre.inline {
+	display: inline;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	margin: 0;
+}
+
 .navbar-default {
 	background-color: #331199;
 }
