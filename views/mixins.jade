@@ -39,6 +39,9 @@ mixin article(article, complete)
 			else if (!complete && article.readMore !== "")
 				p
 					a(href='/article?article=#{article.article}') Read more…
+			else if (!complete && article.readMore === "")
+				p
+					a(href='/article?article=#{article.article}') Discuss…
 
 		footer.panel-footer
 			span.glyphicon.glyphicon-user
