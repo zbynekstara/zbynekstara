@@ -50,6 +50,39 @@ mixin article(article, complete)
 				span.glyphicon.glyphicon-calendar
 				|  #{article.date}
 
+mixin pager(page, numPages)
+	- var previous = page - 1;
+	- var next = page + 1;
+	nav.text-center
+		ul.pagination
+			if (previous == 0)
+				li.disabled
+					a(href="#" aria-label="Previous")
+						span(aria-hidden="true") &laquo;
+			else
+				li
+					a(href="/page?page=#{previous}" aria-label="Previous")
+						span(aria-hidden="true") &laquo;
+
+			- var index = 1;
+			while (index <= numPages)
+				if (index == page)
+					li.active
+						a(href="#") #{index}
+				else
+					li
+						a(href="/page?page=#{index}") #{index}
+				- index += 1
+
+			if (page == numPages)
+				li.disabled
+					a(href="#" aria-label="Next")
+						span(aria-hidden="true") &raquo;
+			else
+				li
+					a(href="/page?page=#{next}" aria-label="Next")
+						span(aria-hidden="true") &raquo;
+
 mixin projects(projects)
 	- var project_group_1 = [];
 	- var project_group_2 = [];

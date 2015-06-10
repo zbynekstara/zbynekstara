@@ -103,18 +103,22 @@ pre.inline {
 	padding: 0;
 	border: 1px solid #331199;
 }
+
 .thumbnail-img {
 	padding: 10px;
 }
+
 .thumbnail-header {
 	margin: 0;
 	padding: 10px 15px;
 	background-color: #331199;
 	color: #FFFFFF;
 }
+
 .thumbnail-caption {
 	padding: 15px;
 }
+
 .thumbnail-footer {
 	padding: 10px 15px 10px;
 	border-top: 1px solid #DDDDDD;
@@ -122,17 +126,42 @@ pre.inline {
 	border-bottom-right-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
+
 .btn {
 	border-color: #331199;
 	background-color: #331199;
 }
+
 .btn:hover, .btn:focus {
 	border-color: #331199;
 	background-color: #008888;
 }
+
 .btn[disabled], .btn[disabled]:hover, .btn[disabled]:focus {
 	border-color: #331199;
 	background-color: #F5F5F5;
 	color: #331199;
 	text-decoration: line-through;
+}
+
+.pagination > li > a {
+	color: #331199;
+}
+
+.pagination > li > a:hover {
+	color: #008888;
+	text-decoration: underline;
+	background-color: #FFFFFF;
+}
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #331199;
+	border: 1px solid #DDDDDD;
+}
+
+.pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover {
+	color: #CCCCCC;
+	text-decoration: none;
 }

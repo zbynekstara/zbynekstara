@@ -3,25 +3,26 @@ var router = express.Router();
 
 var db = require('../src/db.js');
 
-router.get('/articles', function(req, res) {
+router.get('/article', function(req, res) {
+	var address = req.query.article;
 	db.getTags(function(tags) {
 		db.getCategories(function(categories) {
 			db.getArchives(function(archives) {
-				db.getArticles(0, function(articles) {
-					res.render('articles', { title:'Articles', articles:articles, tags:tags, categories:categories, archives:archives });
+				db.getArticle(address, function(article) {
+					var articles = [article];
+					res.render('articles', { title:'Article: '+article.title, articles:articles, complete:true, tags:tags, categories:categories, archives:archives });
 				});
 			});
 		});
 	});
 });
 
-router.get('/article', function(req, res) {
-	var article = req.query.article;
+router.get('/articles', function(req, res) {
 	db.getTags(function(tags) {
 		db.getCategories(function(categories) {
 			db.getArchives(function(archives) {
-				db.getArticle(article, function(articles) {
-					res.render('articles', { title:'Article: '+article, articles:articles, complete:true, tags:tags, categories:categories, archives:archives });
+				db.getArticles(0, function(articles) {
+					res.render('articles', { title:'Articles', articles:articles, tags:tags, categories:categories, archives:archives });
 				});
 			});
 		});

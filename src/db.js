@@ -86,6 +86,33 @@ module.exports = {
 		render(projects);
 	},
 
+	getNumPages: function (limit, render) {
+		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+			if(!err) db.collection('articles', function(err, collection) {
+				if (!err) collection.count(function(err, numArticles) {
+					if (!err) {
+						db.close();
+						var numPages = Math.ceil(numArticles/limit);
+						render(numPages);
+					}
+				});
+			});
+		});
+	},
+
+	getArticle: function (address, render) {
+		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+			if(!err) db.collection('articles', function(err, collection) {
+				if (!err) collection.findOne({ "article":address }, function(err, article) {
+					if (!err) {
+						db.close();
+						render(article);
+					}
+				});
+			});
+		});
+	},
+
 	getArticles: function (limit, render) {
 		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
 			if(!err) db.collection('articles', function(err, collection) {
@@ -99,10 +126,10 @@ module.exports = {
 		});
 	},
 
-	getArticle: function (article, render) {
+	getArticlesByPage: function (limit, page, render) {
 		MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1:27017/test', function(err, db) {
 			if(!err) db.collection('articles', function(err, collection) {
-				if (!err) collection.find({ "article":article }).toArray(function(err, articles) {
+				if (!err) collection.find().sort({ "_id":-1 }).skip(limit*(page-1)).limit(limit).toArray(function(err, articles) {
 					if (!err) {
 						db.close();
 						render(articles);

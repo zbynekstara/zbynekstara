@@ -5,7 +5,13 @@ include ./mixins.jade
 block page
 	.row
 		section.col-md-9
-			+articles(articles)
+			.row
+				.col-md-12
+					+articles(articles)
+			if (numPages > 1)
+				.row
+					.col-md-12
+						+pager(page, numPages)
 
 		section.col-md-3
 			.well
