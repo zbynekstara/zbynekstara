@@ -72,7 +72,7 @@ module.exports = {
 				"development":"Development stack: Python + Flask + SQLAlchemy + Heroku",
 				"img":"img/portfolio_singledrop.png",
 				"link":"http://singledrop.herokuapp.com",
-				"code":"https://github.com/NYUAD-Hackathon/SingleDrop"
+				"code":"https://github.com/zbynekstara/SingleDrop"
 			},
 			{
 				"title":"Findmethewords",
