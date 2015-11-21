@@ -40,6 +40,10 @@ hr {
 	margin-left: 20px;
 }
 
+.container {
+	height: 100%;
+}
+
 .paragraph {
 	margin: 0px 0px 10px;
 }
