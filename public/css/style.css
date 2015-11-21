@@ -11,6 +11,10 @@ a:hover, a:focus {
 	color: #008888;
 }
 
+#map {
+	height: 100%;
+}
+
 .no-matches {
 	text-decoration: line-through;
 }
