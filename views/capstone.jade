@@ -5,7 +5,7 @@ include ./mixins.jade
 block page
 	.map
 
-    script.
+	script.
 		// This example creates a 2-pixel-wide red polyline showing the path of William
 		// Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
 		// Brisbane, Australia.
@@ -34,4 +34,4 @@ block page
 			flightPath.setMap(map);
 		}
 
-    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsXP0CSn6Cv3Uz-6NUsy57_iBN9NzHw-o&signed_in=true&callback=initMap")
+	script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsXP0CSn6Cv3Uz-6NUsy57_iBN9NzHw-o&signed_in=true&callback=initMap")
