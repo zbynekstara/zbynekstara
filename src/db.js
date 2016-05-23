@@ -50,7 +50,7 @@ module.exports = {
 		// change the contents of this array to change contents of portfolio page
 		var projects = [
 			{
-				"title":"MIMIC-III",
+				"title":"MIMIC-III Cohort Exploration",
 				"caption":"2016 Information Visualization project. Big data simplified - medical researchers can visually explore cohorts in the gigantic MIMIC-III Database to determine the most promising areas for research.",
 				"development":"Development stack: JavaScript + D3.js + Crossfilter + Github Pages",
 				"img":"img/portfolio_mimic_iii.png",
