@@ -29,10 +29,8 @@ block content
 						li.active: a(href='/portfolio') Portfolio
 					else
 						li: a(href='/portfolio') Portfolio
-					if (title === 'CV')
-						li.active: a(href='/cv') CV
-					else
-						li: a(href='/cv') CV
+					li: a(href='/cv') CV
+					li: a(href='/cv_czech') Životopis
 
 	.container
 		block page
